@@ -1,0 +1,85 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "projectName": "Prj 1",
+      "device": "Arduino UNO",
+      "connType": "Wi-Fi"
+    },
+    {
+      "id": 2,
+      "projectName": "Prj 2",
+      "device": "Arduino Mega",
+      "connType": "USB"
+    },
+    {
+      "id": 3,
+      "projectName": "Prj 3",
+      "device": "Node MCU",
+      "connType": "Bluetooth"
+    },
+    {
+      "id": 4,
+      "projectName": "Prj 4",
+      "device": "Arduino UNO",
+      "connType": "USB"
+    },
+    {
+      "projectName": "deneme",
+      "device": "raspberryPi3",
+      "connType": "usb",
+      "id": 11
+    },
+    {
+      "projectName": "Proje Sevde",
+      "device": "arduinoUNO",
+      "connType": "usb",
+      "id": 12
+    },
+    {
+      "projectName": "önemli",
+      "device": "raspberryPi3",
+      "connType": "wiFi",
+      "id": 13
+    },
+    {
+      "projectName": "d",
+      "device": "arduinoUNO",
+      "connType": "usb",
+      "id": 14
+    },
+    {
+      "projectName": "ı",
+      "device": "arduinoMega",
+      "connType": "usb",
+      "id": 15
+    },
+    {
+      "projectName": "k",
+      "device": "arduinoUNO",
+      "connType": "bluetooth",
+      "id": 16
+    },
+    {
+      "projectName": "ku",
+      "device": "arduinoUNO",
+      "connType": "wiFi",
+      "id": 17
+    },
+    {
+      "projectName": "fdgf",
+      "device": "arduinoUNO",
+      "connType": "wiFi",
+      "id": 18
+    },
+    {
+      "projectName": "deneme iot",
+      "device": "arduinoUNO",
+      "connType": "wiFi",
+      "id": 19
+    },
+    {
+      "id": 20
+    }
+  ]
+}
