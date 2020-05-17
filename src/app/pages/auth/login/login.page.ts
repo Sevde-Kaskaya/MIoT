@@ -5,6 +5,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
 import { AlertService } from 'src/app/services/alert.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,13 @@ import { AlertService } from 'src/app/services/alert.service';
 export class LoginPage implements OnInit {
 
   _user: User;
+  user_id: number;
   constructor(
     private accountService: AccountService,
     private navCtrl: NavController,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router,
+    private dataService: DataService
   ) {
     this._user = new User();
   }
@@ -26,14 +30,18 @@ export class LoginPage implements OnInit {
 
   check_user: User[]
 
-  Login() {
+  Login(user_id) {
     this.accountService.getUser(this._user).subscribe(data => {
       this.check_user = data;
       if (this.check_user.length == 0) {
         this.alertService.presentToast("Kullanıcı bulunamadi");
       } else {
         this.accountService.logIn();
-        this.navCtrl.navigateRoot('/home');
+        this.dataService.setData(user_id);
+        console.log("login sayfasındaki user_id: "+ user_id)
+        let url = '/home/'+user_id
+        this.router.navigateByUrl(url);
+        //this.navCtrl.navigateRoot('/home');
       
       }
     })

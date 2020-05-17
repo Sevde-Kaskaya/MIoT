@@ -19,12 +19,12 @@
   <ion-item>
     <div id="password-div">
     <ion-label color="light" position="floating">Password</ion-label>
-    <ion-input color="light" [(ngModel)]="_user.userPass"></ion-input>
+    <ion-input type="password" color="light" [(ngModel)]="_user.userPass"></ion-input>
   </div>
   </ion-item>
 
     <div id="login-div">
-    <ion-button shape="round"color="primary" expand="block" (click)="Login()">Login</ion-button>
+    <ion-button shape="round"color="primary" expand="block" (click)="Login(_user.id)">Login</ion-button>
   </div>
 
 </ion-content> 

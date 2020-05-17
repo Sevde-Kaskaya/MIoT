@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AlertService } from 'src/app/services/alert.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project';
+import {  MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-newproject',
@@ -16,12 +17,19 @@ export class NewprojectPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private projectService: ProjectService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private menuCtrl: MenuController
   ) {
     this._project = new Project();
   }
 
+  
+ionViewWillEnter() {
+  this.menuCtrl.enable(false);
+ }
+
   ngOnInit() {
+    this.ionViewWillEnter();
   
   }
   

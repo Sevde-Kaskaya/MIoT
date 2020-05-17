@@ -1,0 +1,25 @@
+{
+  "devices": [
+    {
+      "id": 1,
+      "name": "Button",
+      "api": "api label",
+      "description": "buton",
+	  "type_id" : "1"
+    },
+    {
+      "id": 2,
+      "name": "Slider",
+      "api": "api label",
+      "description": "slider",
+	  "type_id" : "2"
+    },
+	{
+      "id": 3,
+      "name": "Timer",
+      "api": "api label",
+      "description": "timer",
+	  "type_id" : "3"
+    }
+  ]
+}

@@ -1,33 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, NavParams } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { DeviceService} from './services/device.service';
+import { Device} from './models/device';
+import { Router, NavigationExtras } from '@angular/router';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
+  providers: [DeviceService]
 })
 export class AppComponent implements OnInit {
-  public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'LogOut',
-      url: '/app',
-      icon: 'exit'
-    }
-  ];
+  devices : Device[];
+  var_id: number;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private deviceService: DeviceService,
+    private router: Router,
+    private dataService: DataService
   ) {
     this.initializeApp();
   }
@@ -40,9 +37,22 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
+   this.getDevice();
+   
+  }
+
+  getDevice(){
+    this.deviceService.getDevice().subscribe(data => {
+      this.devices = data
+    })
+  }
+  public selectedVariable(var_id){
+    this.dataService.setData(var_id);
+    let url = '/projectdetail/'+var_id
+    this.router.navigateByUrl(url);
+
   }
 }
+
+
+
