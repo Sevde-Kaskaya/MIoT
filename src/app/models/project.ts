@@ -1,5 +1,6 @@
 export class Project {
-    projectId: number;
+    id: number;
+    userId: number;
     projectName: string;
     device: string;
     connType: string;

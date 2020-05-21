@@ -4,7 +4,8 @@ import { NavController, MenuController, NavParams, IonNav } from '@ionic/angular
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceService } from 'src/app/services/device.service';
 import { Device } from 'src/app/models/device';
-import { VirtualTimeScheduler } from 'rxjs';
+import { DetailService } from 'src/app/services/detail.service';
+import { Detail } from 'src/app/models/detail';
 
 @Component({
   selector: 'app-projectdetail',
@@ -14,6 +15,9 @@ import { VirtualTimeScheduler } from 'rxjs';
 })
 export class ProjectdetailPage implements OnInit {
 
+  projectData: any[];
+  data2: string[];
+  datas: number[];
   data: any;
   variable: Device[];
 
@@ -23,8 +27,8 @@ export class ProjectdetailPage implements OnInit {
     public navParams: NavParams,
     private menuCtrl: MenuController,
     private deviceService: DeviceService,
-    private route: ActivatedRoute) 
-    { 
+    private route: ActivatedRoute,
+    private detailService: DetailService) {
     /*-------------------SERVIS KULLANMADAN VERI TASIMA----------------
 
     this.route.queryParams.subscribe(params => {
@@ -34,37 +38,49 @@ export class ProjectdetailPage implements OnInit {
       }
     });
     ---------------------SERVIS KULLANMADAN VERI TASIMA---------------*/
-
-
   }
 
   ngOnInit() {
     this.menuCtrl.enable(true);
     this.variableListele();
-    this.idGetir();
+    this.prjIdGetir();
+    this.varIdGetir();
+    console.log("local storage: "+localStorage.getItem("userId"))
+
   }
 
-  idGetir(){
-    if (this.route.snapshot.data['project']) {
-      this.data = this.route.snapshot.data['project'];
-      console.log("detay sayfaya gelen prj_id:"+this.data)
-      
-      if(this.route.snapshot.data['variable']) {
-        this.data = this.route.snapshot.data['variable'];
-        console.log("detay sayfaya gelen var_id:"+this.data)
-      }
+  prjIdGetir() {
+      this.projectData = this.route.snapshot.data['project'];
+      console.log("detay sayfaya gelen prj_id:" + this.projectData)
+      return this.projectData;
     }
     
-    else{
-      console.log("detay sayfaya veri gelmiyor")
-    }
-     
+  varIdGetir() {
+    this.data = this.route.snapshot.data['variable'];
+    console.log("detay sayfaya gelen var_id:" + this.data)
+    return this.data;
+  
+  
   }
+
+  
+    /*
+    for(var i= 0; i<10; i++){
+      this.data2[i] = this.varIdGetir();
+      console.log("data2 "+ i + ":"+ this.data2[i])
+    }*/
+  
+
+
+/*
+  detailDeviceEkle(){
+   /* this.detailService.addDetailDevice(this._detail.devices).subscribe((response) =>{
+      this.detailService.createdDetail();*/
 
   variableListele() {
     this.deviceService.getDevice().subscribe((data) => {
       this.variable = data;
-     // console.log(this.variable);
+      // console.log(this.variable);
     })
   }
   logOut() {

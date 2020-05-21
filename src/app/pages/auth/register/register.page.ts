@@ -29,7 +29,7 @@ export class RegisterPage implements OnInit {
     this.accountService.createUser(this._user).subscribe((response) =>{
       this.alertService.presentToast("Acount created..");
       this.accountService.logIn();
-      this.navCtrl.navigateRoot('/home');
+      this.navCtrl.navigateRoot('/login');
     })
   }
   cancel(){

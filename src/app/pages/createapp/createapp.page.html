@@ -6,13 +6,15 @@
     <ion-button fill="clear" size="large" (click)="logOut()">
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
-    <ion-title color="light">Project Detail</ion-title>
+    <ion-title color="light">Create App</ion-title>
   </ion-header>
 
-  <ion-content padding center text-center> 
-    <ion-list>
-      <ion-item no-lines color="#0000" color="dark">
-        <ion-label color="medium" >{{data}}</ion-label>
-      </ion-item>
+<ion-content padding center text-center>
+  <ion-list>
+    <div id="new-div">
+      <ion-button shape="round" color="success" expand="block" href="/createapp">
+        <ion-icon name="add-outline"></ion-icon>Create App
+      </ion-button>
+    </div>
   </ion-list>
-  </ion-content>
+</ion-content>

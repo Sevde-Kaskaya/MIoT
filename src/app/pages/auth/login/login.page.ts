@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { User } from './../../../models/user'
 import { AccountService } from 'src/app/services/account.service';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +15,7 @@ import { DataService } from 'src/app/services/data.service';
 export class LoginPage implements OnInit {
 
   _user: User;
-  user_id: number;
+
   constructor(
     private accountService: AccountService,
     private navCtrl: NavController,
@@ -29,23 +29,35 @@ export class LoginPage implements OnInit {
   ngOnInit() { }
 
   check_user: User[]
+  user_id: number;
 
-  Login(user_id) {
+  Login(_user) {
     this.accountService.getUser(this._user).subscribe(data => {
       this.check_user = data;
+      //console.log(this.check_user[0].id)
       if (this.check_user.length == 0) {
         this.alertService.presentToast("Kullanıcı bulunamadi");
       } else {
         this.accountService.logIn();
-        this.dataService.setData(user_id);
-        console.log("login sayfasındaki user_id: "+ user_id)
-        let url = '/home/'+user_id
-        this.router.navigateByUrl(url);
-        //this.navCtrl.navigateRoot('/home');
+        this.user_id = this.check_user[0].id
+        //this.dataService.setPrj(_user);
+        console.log("login sayfasındaki user_id:" + this.user_id)
+        let url = '/home/'+this.user_id
+        //this.router.navigateByUrl(url);
+
+
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+            userid: JSON.stringify(this.user_id)
+          }
+        };
+        this.router.navigate(['/home'], navigationExtras);
       
       }
     })
   }
+
+
 
   cancel(){
     this.navCtrl.navigateRoot('/app');

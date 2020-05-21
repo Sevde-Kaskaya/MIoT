@@ -10,16 +10,17 @@ import { Project } from './../models/project'
 export class ProjectService {
   constructor(private http: HttpClient) { }
 
-  path = "http://localhost:3001/projects";
+  path = "http://localhost:3000/projects";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
 
-  getProject1(): Observable<Project[]> {
+  getProject(user_id): Observable<Project[]> {
+    //onsole.log(user.userId)
     return this.http
-    .get<Project[]>(this.path) //filtreleme
+    .get<Project[]>(this.path + "?userId="+ user_id) //"?userId="+user.userId
     .pipe(
       tap(data =>console.log(JSON.stringify)),
       catchError(this.handleError)

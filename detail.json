@@ -1,0 +1,16 @@
+{
+    "detail": [
+    {
+      "prj_id": 1,
+	  "devices": 2
+	 },
+	 {
+      "prj_id": 1,
+	  "devices": 1
+	 },
+	 {
+      "prj_id": 1,
+	  "devices": 3
+	 }
+  ]
+}

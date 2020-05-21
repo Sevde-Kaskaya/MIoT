@@ -9,10 +9,14 @@
   <ion-content padding center text-center>
     <ion-list>
       <div id="new-div">
-        <ion-button shape="round" color="tertiary" expand="block" href="/newproject">
+        <ion-button shape="round" color="tertiary" expand="block" (click)="createProject()">
           <ion-icon name="add-outline"></ion-icon>New Project
         </ion-button>
+        <ion-button shape="round" color="success" expand="block" href="/createapp">
+          My Apps
+        </ion-button>
       </div>
+
 
       <ion-item no-lines color="#0000">
         <ion-label color="secondary" size="large">{{title}}</ion-label>

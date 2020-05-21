@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "Hatice",
+      "userPass": "Hatice"
+    },
+    {
+      "id": 2,
+      "userName": "Hazal",
+      "userPass": "Hazal"
+    },
+    {
+      "id": 3,
+      "userName": "Gamze",
+      "userPass": "Gamze"
+    },
+    {
+      "id": 4,
+      "userName": "Sevde",
+      "userPass": "Sevde"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "userId": 1,
+      "projectName": "Prj 1",
+      "device": "Arduino UNO",
+      "connType": "Wi-Fi"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "projectName": "Prj 2",
+      "device": "Arduino Mega",
+      "connType": "USB"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "projectName": "Prj 3",
+      "device": "Arduino Mega",
+      "connType": "USB"
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "projectName": "Prj 4",
+      "device": "Arduino Mega",
+      "connType": "USB"
+    },
+    {
+      "id": 5,
+      "userId": 4,
+      "projectName": "Prj 5",
+      "device": "Arduino Mega",
+      "connType": "USB"
+    },
+    {
+      "projectName": "Proje Hazal",
+      "device": "arduinoMega",
+      "connType": "wiFi",
+      "id": 6
+    },
+    {
+      "projectName": "Project Gamze",
+      "device": "raspberryPi3",
+      "connType": "wiFi",
+      "id": 7
+    },
+    {
+      "projectName": "Project Gamze",
+      "device": "arduinoUNO",
+      "connType": "usb",
+      "id": 8
+    },
+    {
+      "projectName": "sddf",
+      "device": "arduinoMega",
+      "connType": "wiFi",
+      "id": 9
+    },
+    {
+      "projectName": "dfff",
+      "device": "arduinoMega",
+      "connType": "wiFi",
+      "id": 10
+    },
+    {
+      "projectName": "x",
+      "device": "arduinoUNO",
+      "connType": "usb",
+      "userId": 4,
+      "id": 11
+    },
+    {
+      "projectName": "fdf",
+      "device": "arduinoMega",
+      "connType": "wiFi",
+      "userId": 4,
+      "id": 12
+    }
+  ],
+  "devices": [
+    {
+      "id": 1,
+      "name": "Button",
+      "api": "api label",
+      "description": "buton",
+      "type_id": "1"
+    },
+    {
+      "id": 2,
+      "name": "Slider",
+      "api": "api label",
+      "description": "slider",
+      "type_id": "2"
+    },
+    {
+      "id": 3,
+      "name": "Timer",
+      "api": "api label",
+      "description": "timer",
+      "type_id": "3"
+    }
+  ],
+  "details": [
+    {
+      "id": 100,
+      "prj_id": 1,
+      "devices": 2
+    },
+    {
+      "id": 101,
+      "prj_id": 1,
+      "devices": 1
+    },
+    {
+      "id": 102,
+      "prj_id": 1,
+      "devices": 3
+    }
+  ]
+}

@@ -2,29 +2,43 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { tap,retry, catchError } from 'rxjs/operators'
-import { Device } from './../models/device'
+import { Detail } from '../models/detail';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DeviceService {
-
+export class DetailService {
   constructor(private http: HttpClient) { }
 
-  path = "http://localhost:3000/devices";
+  path = "http://localhost:3000/details";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
 
-  getDevice(): Observable<Device[]> {
+  getDetails(): Observable<Detail[]> {
     return this.http
-    .get<Device[]>(this.path)
+    .get<Detail[]>(this.path) 
     .pipe(
       tap(data =>console.log(JSON.stringify)),
       catchError(this.handleError)
     )
+  }
+
+  /*addDetailDevice(device): Observable<Detail>{
+    return this.http
+    .post<Detail>(this.path, JSON.stringify(device), this.httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }*/
+
+  created = false;
+  createdDetail(){
+      this.created = true;
+      localStorage.setItem("isCreated", "true");
   }
 
   handleError(err: HttpErrorResponse) {
@@ -38,5 +52,4 @@ export class DeviceService {
     console.log(errMessage);
     return throwError(errMessage);
   }
-
 }
