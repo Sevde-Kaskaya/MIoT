@@ -20,8 +20,7 @@ export class LoginPage implements OnInit {
     private accountService: AccountService,
     private navCtrl: NavController,
     private alertService: AlertService,
-    private router: Router,
-    private dataService: DataService
+    private router: Router
   ) {
     this._user = new User();
   }
@@ -34,35 +33,24 @@ export class LoginPage implements OnInit {
   Login(_user) {
     this.accountService.getUser(this._user).subscribe(data => {
       this.check_user = data;
-      //console.log(this.check_user[0].id)
       if (this.check_user.length == 0) {
         this.alertService.presentToast("Kullanıcı bulunamadi");
       } else {
         this.accountService.logIn();
         this.user_id = this.check_user[0].id
-        //this.dataService.setPrj(_user);
-        console.log("login sayfasındaki user_id:" + this.user_id)
-        let url = '/home/'+this.user_id
-        //this.router.navigateByUrl(url);
-
-
+        let url = '/home/' + this.user_id
         let navigationExtras: NavigationExtras = {
           queryParams: {
             userid: JSON.stringify(this.user_id)
           }
         };
         this.router.navigate(['/home'], navigationExtras);
-      
+
       }
     })
   }
 
-
-
-  cancel(){
+  cancel() {
     this.navCtrl.navigateRoot('/app');
   }
-
-
-
 }

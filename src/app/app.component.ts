@@ -50,10 +50,12 @@ export class AppComponent implements OnInit {
       console.log(this.devices)
     })
   }
+
   public selectedVariable(var_id){
     this.dataService.setVar(var_id);
+    
     let current_url = this.router.url 
-    if(current_url.length < 17){
+    if(current_url.length < 18){
       let url = current_url + '/' +var_id;
       this.router.navigateByUrl(url);
     }
@@ -61,6 +63,20 @@ export class AppComponent implements OnInit {
       let url = current_url + '&' +var_id;
       this.router.navigateByUrl(url);
     }
+
+    /*
+    
+    this.prj_id = Number(localStorage.getItem("projectId"));
+    let current_url = this.router.url 
+    if(this.prj_id){
+      let url = current_url + '/' +var_id;
+      this.router.navigateByUrl(url);
+    }
+    else{
+      let url = current_url + '&' +var_id;
+      this.router.navigateByUrl(url);
+    }
+*/
     
   }
 }

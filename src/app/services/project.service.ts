@@ -18,7 +18,6 @@ export class ProjectService {
   }
 
   getProject(user_id): Observable<Project[]> {
-    //onsole.log(user.userId)
     return this.http
     .get<Project[]>(this.path + "?userId="+ user_id) //"?userId="+user.userId
     .pipe(

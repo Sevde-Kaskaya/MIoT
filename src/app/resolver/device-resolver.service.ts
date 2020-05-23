@@ -13,8 +13,6 @@ export class DeviceResolverService  implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot) {
     let var_id = route.paramMap.get('var_id');
-    
     return this.dataService.getVar(var_id);
-  
   }
 }

@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceService } from 'src/app/services/device.service';
 import { Device } from 'src/app/models/device';
 import { DetailService } from 'src/app/services/detail.service';
-import { Detail } from 'src/app/models/detail';
 
 @Component({
   selector: 'app-projectdetail',
@@ -20,6 +19,7 @@ export class ProjectdetailPage implements OnInit {
   datas: number[];
   data: any;
   variable: Device[];
+  user_id: number;
 
   constructor(
     private alertService: AlertService,
@@ -29,6 +29,9 @@ export class ProjectdetailPage implements OnInit {
     private deviceService: DeviceService,
     private route: ActivatedRoute,
     private detailService: DetailService) {
+
+    this.user_id = Number(localStorage.getItem("userId"));
+
     /*-------------------SERVIS KULLANMADAN VERI TASIMA----------------
 
     this.route.queryParams.subscribe(params => {
@@ -42,47 +45,25 @@ export class ProjectdetailPage implements OnInit {
 
   ngOnInit() {
     this.menuCtrl.enable(true);
-    this.variableListele();
     this.prjIdGetir();
     this.varIdGetir();
-    console.log("local storage: "+localStorage.getItem("userId"))
 
   }
 
   prjIdGetir() {
-      this.projectData = this.route.snapshot.data['project'];
-      console.log("detay sayfaya gelen prj_id:" + this.projectData)
-      return this.projectData;
-    }
-    
+    this.projectData = this.route.snapshot.data['project'];
+    console.log("detay sayfaya gelen prj_id:" + this.projectData)
+    localStorage.setItem("projectId", String(this.projectData)) //login yapan user tutuluyor
+    return this.projectData;
+  }
+
   varIdGetir() {
     this.data = this.route.snapshot.data['variable'];
     console.log("detay sayfaya gelen var_id:" + this.data)
     return this.data;
-  
-  
+
   }
 
-  
-    /*
-    for(var i= 0; i<10; i++){
-      this.data2[i] = this.varIdGetir();
-      console.log("data2 "+ i + ":"+ this.data2[i])
-    }*/
-  
-
-
-/*
-  detailDeviceEkle(){
-   /* this.detailService.addDetailDevice(this._detail.devices).subscribe((response) =>{
-      this.detailService.createdDetail();*/
-
-  variableListele() {
-    this.deviceService.getDevice().subscribe((data) => {
-      this.variable = data;
-      // console.log(this.variable);
-    })
-  }
   logOut() {
     this.alertService.showLogOutAlert();
   }

@@ -4,20 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  private user_id: any;
   private prj_id : any;
   private var_id : any[];
  
   constructor() { }
- 
-  setUser(user_id) {
-    this.user_id = user_id;
-  }
- 
-  getUser(user_id) {
-    return this.user_id;
-  }
-
 
   setPrj(prj_id) {
     this.prj_id = prj_id;

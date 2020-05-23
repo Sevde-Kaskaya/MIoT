@@ -26,15 +26,6 @@ export class DetailService {
     )
   }
 
-  /*addDetailDevice(device): Observable<Detail>{
-    return this.http
-    .post<Detail>(this.path, JSON.stringify(device), this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
-  }*/
-
   created = false;
   createdDetail(){
       this.created = true;

@@ -25,12 +25,7 @@ export class NewprojectPage implements OnInit {
   ) {
     this._project = new Project();
     
-    this.route.queryParams.subscribe(params => {
-      if (params && params.userid) {
-        this.user_id = JSON.parse(params.userid);
-        console.log("new project : " + this.user_id)
-      }
-    });
+    this.user_id = Number(localStorage.getItem("userId"));
   }
 
   
@@ -48,8 +43,6 @@ ionViewWillEnter() {
   }  
   createProject() {
     this._project.userId = this.user_id
-    console.log("user: "+this.user_id)
-    console.log("new prj: "+this._project.userId)
     this.projectService.createProject(this._project).subscribe((response) => {
       this.alertService.presentToast("Project created..");
       this.projectService.createdP();
