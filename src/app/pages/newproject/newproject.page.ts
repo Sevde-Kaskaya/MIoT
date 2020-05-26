@@ -3,8 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AlertService } from 'src/app/services/alert.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project';
-import {  MenuController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-newproject',
@@ -20,43 +19,40 @@ export class NewprojectPage implements OnInit {
     private navCtrl: NavController,
     private projectService: ProjectService,
     private alertService: AlertService,
-    private menuCtrl: MenuController,
-    private route: ActivatedRoute
+    private menuCtrl: MenuController
   ) {
     this._project = new Project();
-    
+
     this.user_id = Number(localStorage.getItem("userId"));
   }
 
-  
-ionViewWillEnter() {
-  this.menuCtrl.enable(false);
- }
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
 
   ngOnInit() {
     this.ionViewWillEnter();
-  
+  }
+
+  logOut() {
+    this.alertService.showLogOutAlert();
   }
   
-  logOut(){
-    this.alertService.showLogOutAlert();
-  }  
   createProject() {
-    this._project.userId = this.user_id
+    this._project.user_id = this.user_id
     this.projectService.createProject(this._project).subscribe((response) => {
       this.alertService.presentToast("Project created..");
       this.projectService.createdP();
       this.navCtrl.navigateRoot('/home');
-
     })
   }
 
-  cancel(){
+  cancel() {
     this.navCtrl.navigateRoot('/home');
   }
 
 
-  
+
 }
 
 

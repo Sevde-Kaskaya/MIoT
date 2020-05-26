@@ -12,14 +12,14 @@
   <ion-item>
     <div id="email-div">
     <ion-label color="light" position="floating">Email</ion-label>
-    <ion-input color="light"  [(ngModel)]="_user.userName"></ion-input>
+    <ion-input color="light"  [(ngModel)]="_user.name"></ion-input>
   </div>
   </ion-item>
 
   <ion-item>
     <div id="password-div">
     <ion-label color="light" position="floating">Password</ion-label>
-    <ion-input type="password" color="light" [(ngModel)]="_user.userPass"></ion-input>
+    <ion-input type="password" color="light" [(ngModel)]="_user.password"></ion-input>
   </div>
   </ion-item>
 
@@ -28,33 +28,3 @@
   </div>
 
 </ion-content> 
-
-<!--
-
-<ion-content padding>
-  <form #form="ngForm" (ngSubmit)="login(form)" method="post">
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input ngModel type="email" name="email"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input ngModel type="password" name="password"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">ID</ion-label>
-      <ion-input ngModel type="id" name="id" ></ion-input>
-    </ion-item>
-    <ion-button type="submit" expand="full" color="primary">Login</ion-button>
-  </form>
-
-  <ion-list>
-    <button ion-item *ngFor="let eleman of users">
-      {{eleman.userName}}
-    </button>
-  </ion-list>
-</ion-content>
-
--->

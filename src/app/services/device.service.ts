@@ -18,7 +18,15 @@ export class DeviceService {
     })
   }
 
-  getDevice(): Observable<Device[]> {
+  getDevice(device_id): Observable<Device[]> {
+    return this.http
+    .get<Device[]>(this.path + "?id="+ device_id)
+    .pipe(
+      tap(data =>console.log(JSON.stringify)),
+      catchError(this.handleError)
+    )
+  }
+  getAllDevice(): Observable<Device[]> {
     return this.http
     .get<Device[]>(this.path)
     .pipe(

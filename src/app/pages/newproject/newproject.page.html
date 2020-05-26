@@ -14,7 +14,7 @@
         <h4>
           <ion-label position="floating">Project Name</ion-label>
         </h4>
-        <ion-input [(ngModel)]="_project.projectName"></ion-input>
+        <ion-input [(ngModel)]="_project.name"></ion-input>
       </ion-text>
     </ion-item>
         
@@ -24,7 +24,7 @@
           <ion-label position="stacked">CHOOSE DEVICE<ion-text color="danger">*</ion-text>
           </ion-label>
         </h4>
-        <ion-select   [(ngModel)]="_project.device" interface="action-sheet">
+        <ion-select class= "myCustomSelect"  [(ngModel)]="_project.device" interface="action-sheet">
           <ion-select-option value="arduinoUNO">Arduino UNO</ion-select-option>
           <ion-select-option value="arduinoMega">Arduino Mega</ion-select-option>
           <ion-select-option value="raspberryPi3">Raspberry Pi 3</ion-select-option>
@@ -39,7 +39,7 @@
           <ion-label position="stacked">CONNECTION TYPE<ion-text color="danger">*</ion-text>
           </ion-label>
         </h4>
-        <ion-select [(ngModel)]="_project.connType"  interface="action-sheet">
+        <ion-select class= "myCustomSelect" [(ngModel)]="_project.connType"  interface="action-sheet">
           <ion-select-option value="wiFi">Wi-Fi</ion-select-option>
           <ion-select-option value="usb">USB</ion-select-option>
           <ion-select-option value="bluetooth">Bluetooth</ion-select-option>

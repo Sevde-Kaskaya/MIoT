@@ -19,7 +19,7 @@ export class AccountService {
 
   getUser(user): Observable<User[]> {
     return this.http
-    .get<User[]>(this.path + "?userName="+user.userName+"&userPass="+user.userPass)
+    .get<User[]>(this.path + "?name="+user.name+"&password="+user.password)
     .pipe(
       tap(data =>console.log(JSON.stringify)),
       catchError(this.handleError)

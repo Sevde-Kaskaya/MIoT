@@ -1,7 +1,7 @@
 export class Project {
     id: number;
-    userId: number;
-    projectName: string;
+    user_id: number;
+    name: string;
     device: string;
     connType: string;
 }

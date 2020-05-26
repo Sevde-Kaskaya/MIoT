@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { DataResolverService } from './resolver/data-resolver.service';
+import { ProjectResolverService } from './resolver/project-resolver.service';
 import { DeviceResolverService } from './resolver/device-resolver.service';
 
 const routes: Routes = [
@@ -12,25 +12,35 @@ const routes: Routes = [
   { path: 'folder/:id', loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule) },
   { path: 'login', loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginPageModule) },
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
-  { path: 'home/:user_id', resolve: { user: DataResolverService }, loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
+  { path: 'home/:user_id', resolve: { user: ProjectResolverService }, loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
   { path: 'register', loadChildren: () => import('./pages/auth/register/register.module').then(m => m.RegisterPageModule) },
   { path: 'app', loadChildren: () => import('./pages/app/app.module').then(m => m.AppPageModule) },
   { path: 'newproject', loadChildren: () => import('./pages/newproject/newproject.module').then(m => m.NewprojectPageModule) },
  {
     path: 'projectdetail/:prj_id',
     resolve: 
-    { project: DataResolverService},
+    { project: ProjectResolverService},
     loadChildren: () => import('./pages/projectdetail/projectdetail.module').then(m => m.ProjectdetailPageModule)
   },
   {
     path: 'projectdetail/:prj_id/:var_id',
     resolve: 
-    { project: DataResolverService, variable: DeviceResolverService},
+    { project: ProjectResolverService, variable: DeviceResolverService},
     loadChildren: () => import('./pages/projectdetail/projectdetail.module').then(m => m.ProjectdetailPageModule)
   },
   {
     path: 'createapp',
     loadChildren: () => import('./pages/createapp/createapp.module').then( m => m.CreateappPageModule)
+  },
+  {
+    path: 'myapp',
+    loadChildren: () => import('./pages/myapp/myapp.module').then( m => m.MyappPageModule)
+  },
+  {
+    path: 'myappdetails/:app_id',
+    resolve:
+     { app: ProjectResolverService },
+    loadChildren: () => import('./pages/myappdetails/myappdetails.module').then( m => m.MyappdetailsPageModule)
   }
   
 ];
@@ -40,6 +50,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule],
-  providers: [DataResolverService]
+  providers: [ProjectResolverService]
 })
 export class AppRoutingModule { }

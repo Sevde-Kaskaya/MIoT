@@ -12,17 +12,15 @@
         <ion-button shape="round" color="tertiary" expand="block" (click)="createProject()">
           <ion-icon name="add-outline"></ion-icon>New Project
         </ion-button>
-        <ion-button shape="round" color="success" expand="block" href="/createapp">
+        <ion-button shape="round" color="success" expand="block" href="/myapp">
           My Apps
         </ion-button>
       </div>
-
-
       <ion-item no-lines color="#0000">
         <ion-label color="secondary" size="large">{{title}}</ion-label>
       </ion-item>
       <ion-item no-lines color="#0000" *ngFor="let project of projects" (click)="goProject(project.id)">
-        <ion-label color="medium">{{project.projectName}}</ion-label>
+        <ion-label color="medium">{{project.name}}</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

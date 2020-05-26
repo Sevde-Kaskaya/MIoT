@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataResolverService } from './data-resolver.service';
+import { TransferService } from './transfer.service';
 
-describe('DataResolverService', () => {
+describe('TransferService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DataResolverService = TestBed.get(DataResolverService);
+    const service: TransferService = TestBed.get(TransferService);
     expect(service).toBeTruthy();
   });
 });

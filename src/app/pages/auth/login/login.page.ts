@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { User } from './../../../models/user'
 import { AccountService } from 'src/app/services/account.service';
-import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
 import { AlertService } from 'src/app/services/alert.service';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +13,8 @@ import { DataService } from 'src/app/services/data.service';
 export class LoginPage implements OnInit {
 
   _user: User;
+  check_user: User[]
+  user_id: number;
 
   constructor(
     private accountService: AccountService,
@@ -26,9 +26,6 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() { }
-
-  check_user: User[]
-  user_id: number;
 
   Login(_user) {
     this.accountService.getUser(this._user).subscribe(data => {
@@ -45,7 +42,6 @@ export class LoginPage implements OnInit {
           }
         };
         this.router.navigate(['/home'], navigationExtras);
-
       }
     })
   }

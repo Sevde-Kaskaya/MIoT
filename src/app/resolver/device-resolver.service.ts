@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
-import { DataService } from '../services/data.service';
+import { TransferService } from '../services/transfer.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceResolverService  implements Resolve<any> {
 
-  var_id: any[];
+  device_id: any[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private transferService: TransferService) { }
 
   resolve(route: ActivatedRouteSnapshot) {
-    let var_id = route.paramMap.get('var_id');
-    return this.dataService.getVar(var_id);
+    let device_id = route.paramMap.get('device_id');
+    return this.transferService.getVar(device_id);
   }
 }

@@ -2,118 +2,121 @@
   "users": [
     {
       "id": 1,
-      "userName": "Hatice",
-      "userPass": "Hatice"
+      "name": "Hatice",
+      "password": "Hatice"
     },
     {
       "id": 2,
-      "userName": "Hazal",
-      "userPass": "Hazal"
+      "name": "Hazal",
+      "password": "Hazal"
     },
     {
       "id": 3,
-      "userName": "Gamze",
-      "userPass": "Gamze"
+      "name": "Gamze",
+      "password": "Gamze"
     },
     {
       "id": 4,
-      "userName": "Sevde",
-      "userPass": "Sevde"
+      "name": "a",
+      "password": "a"
+    },
+    {
+      "name": "Sevde",
+      "password": "Sevde",
+      "id": 5
     }
   ],
   "projects": [
     {
       "id": 1,
-      "userId": 1,
-      "projectName": "Prj 1",
+      "user_id": 1,
+      "name": "Prj 1",
       "device": "Arduino UNO",
       "connType": "Wi-Fi"
     },
     {
       "id": 2,
-      "userId": 1,
-      "projectName": "Prj 2",
+      "user_id": 1,
+      "name": "Prj 2",
       "device": "Arduino Mega",
       "connType": "USB"
     },
     {
       "id": 3,
-      "userId": 2,
-      "projectName": "Prj 3",
+      "user_id": 2,
+      "name": "Prj 3",
       "device": "Arduino Mega",
       "connType": "USB"
     },
     {
       "id": 4,
-      "userId": 3,
-      "projectName": "Prj 4",
+      "user_id": 3,
+      "name": "Prj 4",
       "device": "Arduino Mega",
       "connType": "USB"
     },
     {
       "id": 5,
-      "userId": 4,
-      "projectName": "Prj 5",
+      "user_id": 4,
+      "name": "Prj 5",
       "device": "Arduino Mega",
       "connType": "USB"
     },
     {
-      "projectName": "Proje Hazal",
+      "id": 6,
+      "user_id": 2,
+      "name": "Proje Hazal",
       "device": "arduinoMega",
-      "connType": "wiFi",
-      "id": 6
+      "connType": "wiFi"
     },
     {
-      "projectName": "Project Gamze",
+      "id": 7,
+      "user_id": 3,
+      "name": "Project Gamze",
       "device": "raspberryPi3",
-      "connType": "wiFi",
-      "id": 7
+      "connType": "wiFi"
     },
     {
-      "projectName": "Project Gamze",
+      "id": 8,
+      "user_id": 3,
+      "name": "Project Gamze",
       "device": "arduinoUNO",
-      "connType": "usb",
-      "id": 8
+      "connType": "usb"
     },
     {
-      "projectName": "sddf",
-      "device": "arduinoMega",
-      "connType": "wiFi",
-      "id": 9
-    },
-    {
-      "projectName": "dfff",
-      "device": "arduinoMega",
-      "connType": "wiFi",
-      "id": 10
-    },
-    {
-      "projectName": "x",
+      "id": 9,
+      "user_id": 4,
+      "name": "Project X",
       "device": "arduinoUNO",
-      "connType": "usb",
-      "userId": 4,
+      "connType": "usb"
+    },
+    {
+      "id": 10,
+      "user_id": 4,
+      "name": "sevde deneme",
+      "device": "arduinoUNO",
+      "connType": "bluetooth"
+    },
+    {
+      "name": "Project Sevde",
+      "device": "arduinoUNO",
+      "connType": "wiFi",
+      "user_id": 5,
       "id": 11
     },
     {
-      "projectName": "fdf",
-      "device": "arduinoMega",
-      "connType": "wiFi",
-      "userId": 4,
+      "name": "abc",
+      "device": "arduinoUNO",
+      "connType": "usb",
+      "user_id": 1,
       "id": 12
     },
     {
-      "projectName": "sevde dene",
       "device": "arduinoUNO",
-      "connType": "bluetooth",
-      "userId": 4,
+      "connType": "usb",
+      "name": "a",
+      "user_id": 1,
       "id": 13
-    },
-    {
-      "projectName": "a",
-      "device": "arduinoMega",
-      "connType": "bluetooth",
-      "userId": 4,
-      "id": 14
     }
   ],
   "devices": [
@@ -121,39 +124,117 @@
       "id": 1,
       "name": "Button",
       "api": "api label",
-      "description": "buton",
-      "type_id": "1"
+      "description": "controller",
+      "type_id": "0"
     },
     {
       "id": 2,
-      "name": "Slider",
+      "name": "Timer",
       "api": "api label",
-      "description": "slider",
-      "type_id": "2"
+      "description": "controller",
+      "type_id": "0"
     },
     {
       "id": 3,
-      "name": "Timer",
+      "name": "Led",
       "api": "api label",
-      "description": "timer",
-      "type_id": "3"
+      "description": "display",
+      "type_id": "1"
+    },
+    {
+      "id": 4,
+      "name": "Value Display",
+      "api": "api label",
+      "description": "display",
+      "type_id": "1"
     }
   ],
-  "details": [
+  "data": [
     {
-      "id": 100,
-      "prj_id": 1,
-      "devices": 2
+      "device_id": 3,
+      "value": "true",
+      "type": 1,
+      "created_at": "2020-01-01 10:10:10+05:30 "
     },
     {
-      "id": 101,
-      "prj_id": 1,
-      "devices": 1
+      "device_id": 4,
+      "value": "53°C",
+      "type": 1,
+      "created_at": "2020-01-02 10:10:10+05:30 "
+    }
+  ],
+  "app_projects": [
+    {
+      "id": 1,
+      "app_id": 1,
+      "project_id": 1
     },
     {
-      "id": 102,
-      "prj_id": 1,
-      "devices": 3
+      "id": 2,
+      "app_id": 1,
+      "project_id": 2
+    },
+    {
+      "id": 3,
+      "app_id": 1,
+      "project_id": 4
+    },
+    {
+      "id": 4,
+      "app_id": 2,
+      "project_id": 2
+    },
+    {
+      "id": 5,
+      "app_id": 2,
+      "project_id": 4
+    },
+    {
+      "id": 6,
+      "app_id": 2,
+      "project_id": 6
+    },
+    {
+      "id": 7,
+      "app_id": 3,
+      "project_id": 3
+    },
+    {
+      "id": 8,
+      "app_id": 3,
+      "project_id": 8
+    }
+  ],
+  "app": [
+    {
+      "id": 1,
+      "name": "app1",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "name": "app2",
+      "user_id": 1
+    },
+    {
+      "id": 3,
+      "name": "app3",
+      "user_id": 2
+    },
+    {
+      "name": "app4",
+      "user_id": 1,
+      "id": 4
+    },
+    {
+      "name": "Test App",
+      "user_id": 1,
+      "id": 5
+    },
+    {
+      "name": "app sevde",
+      "user_id": 4,
+      "id": 6
     }
   ]
 }

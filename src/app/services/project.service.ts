@@ -19,7 +19,7 @@ export class ProjectService {
 
   getProject(user_id): Observable<Project[]> {
     return this.http
-    .get<Project[]>(this.path + "?userId="+ user_id) //"?userId="+user.userId
+    .get<Project[]>(this.path + "?user_id="+ user_id) 
     .pipe(
       tap(data =>console.log(JSON.stringify)),
       catchError(this.handleError)

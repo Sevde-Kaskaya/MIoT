@@ -13,14 +13,14 @@
   <ion-item>
     <div id="email-div">
       <ion-label color="light" position="floating">Email</ion-label>
-      <ion-input color="light" [(ngModel)]="_user.userName"></ion-input>
+      <ion-input color="light" [(ngModel)]="_user.name"></ion-input>
     </div>
   </ion-item>
 
   <ion-item>
     <div id="password-div">
       <ion-label color="light" position="floating">Password</ion-label>
-      <ion-input color="light" [(ngModel)]="_user.userPass"></ion-input>
+      <ion-input color="light" [(ngModel)]="_user.password"></ion-input>
     </div>
   </ion-item>
 
@@ -31,27 +31,3 @@
 
 
 </ion-content>
-
-<!--
-<ion-content padding>
-  <form #form="ngForm" (ngSubmit)="register(form)" method="post">
-    <ion-item>
-        <ion-label position="floating">User Name</ion-label>
-        <ion-input ngModel name="fName"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" ngModel name="email"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" ngModel name="password"></ion-input>
-    </ion-item>
-  
-    <ion-button type="submit" expand="full" color="danger">Create Account</ion-button>
-  </form>
-</ion-content> 
-
--->

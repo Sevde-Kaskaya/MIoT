@@ -1,27 +1,42 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
+import { Observable, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators'
+import { Data } from '../models/data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private prj_id : any;
-  private var_id : any[];
- 
-  constructor() { }
 
-  setPrj(prj_id) {
-    this.prj_id = prj_id;
-  }
- 
-  getPrj(prj_id) {
-    return this.prj_id;
+  constructor(private http: HttpClient) { }
+
+  path = "http://localhost:3000/data";
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
   }
 
-  setVar(var_id) {
-    this.var_id = var_id;
+  getDeviceData(device_id): Observable<Data[]> {
+    return this.http
+    .get<Data[]>(this.path + "?device_id="+ device_id)
+    .pipe(
+      tap(data =>console.log(JSON.stringify)),
+      catchError(this.handleError)
+    )
   }
- 
-  getVar(var_id) {
-    return this.var_id;
+
+  handleError(err: HttpErrorResponse) {
+    let errMessage = "";
+    if (err.error instanceof ErrorEvent) {
+      errMessage = "Bir hata olustu" + err.error.message;
+    } else {
+      errMessage = "Sistemsel hata";
+    }
+
+    console.log(errMessage);
+    return throwError(errMessage);
   }
+
 }

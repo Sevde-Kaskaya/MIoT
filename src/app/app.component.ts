@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Platform, NavParams } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DeviceService} from './services/device.service';
 import { Device} from './models/device';
-import { Router, NavigationExtras } from '@angular/router';
-import { DataService } from './services/data.service';
+import { Router } from '@angular/router';
+import { TransferService } from './services/transfer.service';
 import { ProjectdetailPage } from './pages/projectdetail/projectdetail.page';
 
 @Component({
@@ -17,7 +16,7 @@ import { ProjectdetailPage } from './pages/projectdetail/projectdetail.page';
 })
 export class AppComponent implements OnInit {
   devices : Device[];
-  var_id: any[];
+  device_id: any[];
   prj_id : any;
 
   constructor(
@@ -26,8 +25,7 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private deviceService: DeviceService,
     private router: Router,
-    private dataService: DataService,
-    private prjDetailPage: ProjectdetailPage 
+    private transferService: TransferService
   ) {
     this.initializeApp();
   }
@@ -45,27 +43,26 @@ export class AppComponent implements OnInit {
   }
 
   getDevice(){
-    this.deviceService.getDevice().subscribe(data => {
+    this.deviceService.getAllDevice().subscribe(data => {
       this.devices = data
       console.log(this.devices)
     })
   }
 
-  public selectedVariable(var_id){
-    this.dataService.setVar(var_id);
+  public selectedDevice(device_id){
+    this.transferService.setVar(device_id);
     
     let current_url = this.router.url 
     if(current_url.length < 18){
-      let url = current_url + '/' +var_id;
+      let url = current_url + '/' +device_id;
       this.router.navigateByUrl(url);
     }
     else{
-      let url = current_url + '&' +var_id;
+      let url = current_url + '&' +device_id;
       this.router.navigateByUrl(url);
     }
 
     /*
-    
     this.prj_id = Number(localStorage.getItem("projectId"));
     let current_url = this.router.url 
     if(this.prj_id){
